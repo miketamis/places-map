@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { getPlaces } from '../ducks/places';
 import PlacesList from './PlacesList'
 import PlacesMap from './PlacesMap'
+import { Grid  } from 'semantic-ui-react'
+
 
 class MainContainer extends Component {
   componentDidMount() {
@@ -11,10 +13,11 @@ class MainContainer extends Component {
   }
 
   render() {
-    return <div>
-      <PlacesList />
+    return <div style={{ height: '100%', width: '100%'}}>
+      <div className="sidebar"><PlacesList /></div>
       <PlacesMap />
     </div>
+
   }
 }
 
