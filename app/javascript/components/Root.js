@@ -6,7 +6,7 @@ import thunk from 'redux-thunk'
 import { createLogger } from 'redux-logger'
 
 import reducer from '../ducks'
-import PlacesList from './PlacesList'
+import MainContainer from './MainContainer'
 import '../styles/main.css'
 import 'semantic-ui-css/semantic.min.css';
 
@@ -24,5 +24,5 @@ const store = createStore(
 )
 
 export default () => <Provider store={store}>
-    <PlacesList />
+    <MainContainer />
   </Provider>;
