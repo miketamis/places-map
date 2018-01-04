@@ -12,6 +12,9 @@ gem 'rails', '~> 5.1.4'
 gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
+
+gem 'webpacker', '~> 3.0'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -30,7 +33,6 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.5'
   gem 'simplecov', :require => false, :group => :test
-
 end
 
 group :development do
