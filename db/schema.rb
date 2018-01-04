@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 20180103234942) do
 
   create_table "places", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
+    t.string "name", default: "", null: false
+    t.string "description", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
