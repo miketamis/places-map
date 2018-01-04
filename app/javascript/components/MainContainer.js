@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getPlaces } from '../ducks/places';
 import PlacesList from './PlacesList'
+import PlacesMap from './PlacesMap'
 
 class MainContainer extends Component {
   componentDidMount() {
@@ -12,6 +13,7 @@ class MainContainer extends Component {
   render() {
     return <div>
       <PlacesList />
+      <PlacesMap />
     </div>
   }
 }
