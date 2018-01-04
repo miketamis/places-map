@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Main from '../components/Main'
+import Root from '../components/Root'
 
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Main name="Test" />,
+    <Root />,
     document.getElementById('root')
   )
 })
