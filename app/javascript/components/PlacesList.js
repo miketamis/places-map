@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 const PlacesList = ({ places }) => (
   <List>
-    { places.map((place) => <List.Item>
+    { places.map((place) => <List.Item key={place.id}>
         <List.Icon name='marker' />
         <List.Content>
           <List.Header as='a'>{place.name}</List.Header>
