@@ -3,6 +3,7 @@ import { List,  Header, Menu, Icon, Button  } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { selectPlace, editPlace } from '../ducks/places'
 import PlaceEditForm from './PlaceEditForm';
+import CreatePlaceButton from './CreatePlaceButton';
 
 const EditButton = ({ onClick }) => <Button icon style={{float: 'right'}} onClick={onClick}>
    <Icon name='edit' />
@@ -24,23 +25,25 @@ const PlaceMenuItem = ({ place, placeSelected, setEditPlace }) => {
   </Menu.Item>
 
 }
-const PlacesList = ({ places, placeSelected, setEditPlace }) => {
-  const editingPlace = places.find(place => place.editing);
+const PlacesList = ({ places, placeSelected, setEditPlace, editingPlace }) => {
   if(editingPlace) {
     return <Menu vertical fluid><EditPane place={editingPlace}/></Menu>;
   }
-  return <Menu vertical fluid>
+  return <div>
+    <CreatePlaceButton />
+    <Menu vertical fluid>
     { places.map((place) => <PlaceMenuItem
         place={place}
         placeSelected={placeSelected}
         setEditPlace={setEditPlace}
       />) }
-  </Menu>
+  </Menu> </div>
 };
 
 const mapStateToProps = (state, ownProps) => {
   return {
     places: state.places,
+    editingPlace: state.editingPlace,
   }
 }
 

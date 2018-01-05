@@ -4,6 +4,7 @@ const SELECT_PLACE = 'places/SELECT_PLACE';
 const EDIT_PLACE = 'places/EDIT_PLACE';
 const CANCEL_EDIT = 'places/CANCEL_EDIT';
 const EDIT_PLACES_FIELD = 'places/EDIT_PLACES_FIELD';
+const OPEN_BLANK_PLACE = 'places/OPEN_BLANK_PLACE';
 
 function requestPlaces() {
   return {
@@ -19,10 +20,17 @@ function receivePlaces(places) {
   }
 }
 
+
+
 export function selectPlace(placeId) {
   return {
     type: SELECT_PLACE,
     payload: placeId,
+  }
+}
+export function openBlankPlace() {
+  return {
+    type: OPEN_BLANK_PLACE,
   }
 }
 
@@ -160,8 +168,22 @@ export default function reducer(state = { places: [] }, action = {}) {
       return Object.assign(state, {
         editingPlace: null,
       });
+
+    case OPEN_BLANK_PLACE:
+      return  Object.assign(state, {
+        editingPlace: {
+          name: '',
+          description: '',
+          lat: 0,
+          lng: 0,
+        },
+      });
     case EDIT_PLACES_FIELD:
-      const editingPlace = state.editingPlace && Object.assign({}, state.editingPlace, action.payload);
+      if(!state.editingPlace) {
+        return state;
+      }
+
+      const editingPlace = Object.assign({}, state.editingPlace, action.payload);
       editingPlace.lat = cleanCordinateString(editingPlace.lat, 90);
       editingPlace.lng = cleanCordinateString(editingPlace.lng, 180);
       return Object.assign(state, {
