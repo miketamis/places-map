@@ -5,6 +5,7 @@ const EDIT_PLACE = 'places/EDIT_PLACE';
 const CANCEL_EDIT = 'places/CANCEL_EDIT';
 const EDIT_PLACES_FIELD = 'places/EDIT_PLACES_FIELD';
 const OPEN_BLANK_PLACE = 'places/OPEN_BLANK_PLACE';
+const DELETE_EDITING_PLACE = 'places/DELETE_EDITING_PLACE';
 
 function requestPlaces() {
   return {
@@ -28,9 +29,24 @@ export function selectPlace(placeId) {
     payload: placeId,
   }
 }
+
 export function openBlankPlace() {
   return {
     type: OPEN_BLANK_PLACE,
+  }
+}
+
+export function deleteEditingPlace() {
+  return (dispatch, getState) => {
+    dispatch({
+      type: DELETE_EDITING_PLACE,
+    });
+    const state = getState();
+    if(state.editingPlace.id) {
+      return fetch(`/places/${state.editingPlace.id}`, {
+        method: 'delete',
+      }).then(() => getPlaces()(dispatch, getState));
+    }
   }
 }
 
