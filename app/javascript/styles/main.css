@@ -9,3 +9,11 @@
   top: 10px;
   left: 10px;
 }
+
+
+.menu-heading {
+  margin: 2px;
+  margin-bottom: 11px;
+  font-size: 2em;
+  line-height: 37px;
+}
