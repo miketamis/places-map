@@ -20,7 +20,7 @@ const PlaceMenuItem = ({ place, placeSelected, setEditPlace }) => {
         {  place.name }
         { place.selected && <EditButton place={place} onClick={() => setEditPlace(place.id)} /> }
       </span>
-      <p>{place.description}</p>
+      <p style={{ overflowWrap: 'break-word'}}>{place.description}</p>
   </Menu.Item>
 
 }
