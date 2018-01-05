@@ -34,7 +34,7 @@ class PlacesController < ApplicationController
 
   def place_params
     # whitelist params
-    params.permit(:name, :description)
+    params.permit(:name, :description, :lat, :lng)
   end
 
   def set_place
