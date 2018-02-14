@@ -1,24 +1,21 @@
-# README
+# Prerequisites
+```
+Ruby 2.2+
+Rails 4.2+
+Node.js 6.0.0+
+Yarn 0.25.2+
+```
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Setup
 
-Things you may want to cover:
+```bash
+bundle
+yarn 
+rails db:migrate
+```
 
-* Ruby version
+# Run
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```bash
+rails s
+```
